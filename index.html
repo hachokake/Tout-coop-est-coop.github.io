@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Tout coop est coop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Site vitrine mode haut de gamme, parfums, montres, sacs, chemises, accessoires.">
+</head>
+<body>
+<header class="sticky-top bg-white shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white container">
+    <a class="navbar-brand d-flex align-items-center" href="#" aria-label="Logo tout coop est coop boutique">
+      <div class="logo-wrapper" role="img" aria-label="Logo tout coop est coop boutique">
+        <img src="logo.png" class="logo-img" alt="Logo tout coop est coop boutique" onerror="this.src='logo.jpeg'" />
+      </div>
+      <div class="ms-3">
+        <div style="font-weight:700; font-size:1rem; line-height:1.1;">Tout coop est coop boutique</div>
+        <small class="text-muted" style="font-size:0.75rem;">Mode premium, parfums, montres, sacs</small>
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="#home">Accueil</a></li>
+        <li class="nav-item"><a class="nav-link" href="#products">Produits</a></li>
+        <li class="nav-item"><a class="nav-link" href="#cart">Panier</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section id="home" class="hero bg-dark text-white pt-5 pb-5">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://images.unsplash.com/photo-1495121605193-b116b5b09a3f?auto=format&fit=crop&w=1600&q=80" class="d-block w-100" alt="Parfums de luxe">
+          <div class="carousel-caption d-none d-md-block text-start">
+            <h1 class="display-5 fw-bold">Parfums d'Exception</h1>
+            <p>Découvrez notre sélection exclusive, élégante et raffinée.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1600&q=80" class="d-block w-100" alt="Montres de luxe">
+          <div class="carousel-caption d-none d-md-block text-start">
+            <h1 class="display-5 fw-bold">Montres Haut de Gamme</h1>
+            <p>Style intemporel et précision suisse, pour rester toujours à l'heure.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=80" class="d-block w-100" alt="Sacs et accessoires">
+          <div class="carousel-caption d-none d-md-block text-start">
+            <h1 class="display-5 fw-bold">Sacs et Accessoires</h1>
+            <p>Finitions rares, textures nobles pour un look parfait.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Précédent</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Suivant</span>
+      </button>
+    </div>
+    <div class="container hero-content text-center mt-4">
+      <h2 class="mb-3">Boutique en ligne de mode de prestige</h2>
+      <p class="lead">Parfums, montres, sacs, chemises et accessoires — sélection premium, livraison rapide.</p>
+      <button id="ctaTopBtn" class="btn btn-success btn-lg">Commander via WhatsApp</button>
+      <p class="mt-3 text-muted">Tout est direct : aucune sauvegarde, aucune base de données, tout passe par WhatsApp.</p>
+    </div>
+  </section>
+
+  <section id="products" class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2>Nos produits</h2>
+      <p class="mb-0 text-muted">10 produits fixes, prêts à commander.</p>
+    </div>
+    <div class="row" id="productGrid"></div>
+  </section>
+
+  <div class="modal fade" id="productDetailModal" tabindex="-1" aria-labelledby="productDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content rounded-4 shadow-lg">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="productDetailModalLabel">Détails du produit</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-md-5">
+              <img id="productDetailImage" src="" alt="Produit" class="img-fluid rounded-3" />
+            </div>
+            <div class="col-md-7">
+              <h4 id="productDetailName"></h4>
+              <p id="productDetailDesc" class="text-muted"></p>
+              <p id="productDetailPrice" class="fw-bold fs-5"></p>
+              <p id="productDetailInfo" class="small text-secondary">Cliquez sur "Ajouter au panier" pour continuer.</p>
+              <button id="detailAddToCart" class="btn btn-custom">Ajouter au panier</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="cart" class="container py-5 bg-light rounded-4 mb-5">
+    <div class="row">
+      <div class="col-lg-6">
+        <h3>Mini-panier</h3>
+        <ul class="list-group mb-3" id="cartItems"></ul>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <strong>Total</strong>
+          <strong id="cartTotal">0 €</strong>
+        </div>
+        <button id="clearCartBtn" class="btn btn-outline-danger btn-sm mb-3">Vider le panier</button>
+        <div class="alert alert-info" role="alert">
+          Le panier est conservé uniquement dans le navigateur (LocalStorage). Pas de serveur, pas de base de données.
+        </div>
+      </div>
+
+      <div class="col-lg-6" id="contact">
+        <h3>Finaliser la commande</h3>
+        <form id="checkoutForm" novalidate>
+          <div class="mb-3">
+            <label for="clientName" class="form-label">Nom du client <span class="text-danger">*</span></label>
+            <input type="text" id="clientName" class="form-control" required placeholder="Entrez votre nom" />
+            <div class="invalid-feedback">Le nom est obligatoire pour commander via WhatsApp.</div>
+          </div>
+          <div class="mb-3">
+            <label for="clientEmail" class="form-label">Email (optionnel)</label>
+            <input type="email" id="clientEmail" class="form-control" placeholder="contact@example.com" />
+          </div>
+          <button id="whatsappCheckoutBtn" class="btn btn-success btn-lg w-100" type="button">Commander via WhatsApp</button>
+        </form>
+        <div id="checkoutAlert" class="alert alert-success d-none mt-3" role="alert"></div>
+        <small class="d-block mt-3 text-muted">Le message est directement généré et envoyé à WhatsApp, sans stockage ni backend.</small>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-dark text-white py-4">
+  <div class="container text-center">
+    <p class="mb-1">© 2026 Tout coop est coop . Chaque achat est une promesse tenue. Faites-vous plaisir, nous nous occupons du reste.</p>
+    <p class="mb-0">La qualité au bon prix, livrée avec le sourire.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
